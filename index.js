@@ -22,9 +22,7 @@ let isSwitched = false;
 })();
 
 async function getData() {
-   const response = await fetch("http://ip-api.com/json/", {
-      referrerPolicy: "unsafe_url",
-   });
+   const response = await fetch("http://ip-api.com/json/");
    data = await response.json();
    countryCode = data.countryCode;
    city = data.city;
