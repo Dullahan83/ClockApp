@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <link
+         rel="icon"
+         type="image/png"
+         sizes="32x32"
+         href="./assets/favicon-32x32.png"
+      />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+         rel="stylesheet"
+      />
+      <link rel="stylesheet" href="index.css" />
+      <script src="https://cdn.tailwindcss.com"></script>
+      <title>Frontend Mentor | Clock App</title>
+   </head>
+
+   <body
+      class="pt-8 pb-10 md:pt-[86px] md:pb-16 lg:pt-14 lg:pb-[98px] text-white overflow-hidden font-['Inter']"
+   >
+      <!-- More Less    -->
+      <div
+         class="px-[26px] md:px-[8.33vw] lg:px-[11.46vw] h-full flex flex-col justify-between transition-[margin] ease duration-500"
+      >
+         <div class="flex text-xs md:text-lg">
+            <div class="mr-4">
+               <q></q>
+               <p id="quoteAuthor" class="font-bold mt-[13px]"></p>
+            </div>
+            <img
+               id="refreshQuote"
+               src="./assets/desktop/icon-refresh.svg"
+               alt="refresh quote"
+               class="w-5 h-5 mt-[5px] hover:cursor-[url(./assets/desktop/pointer.png),_pointer]"
+            />
+         </div>
+
+         <div
+            class="flex flex-col lg:flex-row lg:justify-between lg:items-end uppercase"
+         >
+            <div>
+               <p
+                  class="flex tracking-[.2em] text-[15px] md:text-lg lg:text-xl"
+               >
+                  <img
+                     src="./assets/desktop/icon-sun.svg"
+                     alt=""
+                     class="mr-4"
+                  /><span>Good Evening</span>
+               </p>
+               <div
+                  class="text-[100px] md:text-[175px] lg:text-[200px] ml-[-10px] w-fit my-4 md:my-0 lg:my-4 leading-none font-bold tracking-tight"
+               >
+                  <span id="hour">23</span>:<span
+                     id="minutes"
+                     class="leading-none"
+                     >14</span
+                  ><span
+                     id="timeZone"
+                     class="ml-3 text-[15px] md:text-[32px] lg:text-[40px] font-light tracking-normal"
+                     >BST</span
+                  >
+               </div>
+
+               <p
+                  class="flex md:text-lg lg:text-2xl tracking-[.2em] text-[15px] font-bold"
+               >
+                  in&nbsp<span id="city">London</span>,&nbsp
+                  <span id="country">UK</span>
+               </p>
+            </div>
+            <div
+               id="switch"
+               class="text-xs md:text-base mt-12 md:mt-20 lg:mt-0 w-[115px] md:w-[146px] h-[39px] md:h-14 bg-white flex items-center justify-end rounded-full pr-1 md:pr-2 tracking-[.2em] text-[#979797]"
+            >
+               <p class="font-bold">More</p>
+               <span
+                  class="flex w-8 h-8 md:h-10 md:w-10 bg-[#303030] ml-[15px] rounded-full hover:cursor-[url(./assets/desktop/pointer.png),_pointer]"
+               >
+                  <img
+                     src="./assets/desktop/icon-arrow-up.svg"
+                     alt="expand"
+                     class="rotate-180"
+                  />
+               </span>
+            </div>
+         </div>
+      </div>
+      <div
+         id="infosContainer"
+         class="flex justify-between backdrop-blur-sm mt-10 md:mt-[64px] lg:mt-[98px] h-[50vh] px-[26px] py-12 md:pl-16 md:py-[119px] md:pr-[21.61vw] lg:pl-[11.46vw] lg:py-[74px]"
+      >
+         <div
+            class="flex flex-col w-full md:flex-row text-[10px] h-[160px] md:h-[202px] lg:h-full md:text-[13px] lg:text-[15px] md:justify-between uppercase"
+         >
+            <div class="flex flex-col md:justify-between">
+               <div class="flex md:flex-col justify-between md:justify-start">
+                  <p
+                     class="tracking-[0.2em] self-center leading-[2.3rem] md:leading-normal md:self-auto"
+                  >
+                     Current timezone
+                  </p>
+                  <span
+                     id="zone"
+                     class="text-[20px] md:text-[40px] lg:text-[56px] font-bold normal-case"
+                  ></span>
+               </div>
+               <div
+                  class="flex md:flex-col mt-4 md:mt-0 justify-between md:justify-start"
+               >
+                  <p
+                     class="tracking-[0.2em] self-center leading-[2.3rem] md:leading-normal md:self-auto"
+                  >
+                     Day of the year
+                  </p>
+                  <span
+                     id="dayOfYear"
+                     class="md:text-[40px] text-[20px] lg:text-[56px] font-bold"
+                  ></span>
+               </div>
+            </div>
+
+            <div
+               class="flex flex-col md:justify-between lg:pl-[6.53vw] lg:border-solid lg:border-l lg:border-[#303030]"
+            >
+               <div
+                  class="flex md:flex-col mt-4 md:mt-0 justify-between md:justify-start"
+               >
+                  <p
+                     class="tracking-[0.2em] self-center leading-[2.3rem] md:leading-normal md:self-auto"
+                  >
+                     Day of the week
+                  </p>
+                  <span
+                     id="weekDay"
+                     class="md:text-[40px] text-[20px] lg:text-[56px] font-bold"
+                  ></span>
+               </div>
+
+               <div
+                  class="flex md:flex-col mt-4 md:mt-0 justify-between md:justify-start"
+               >
+                  <p
+                     class="tracking-[0.2em] self-center leading-[2.3rem] md:leading-normal md:self-auto"
+                  >
+                     Week number
+                  </p>
+                  <span
+                     id="currentWeek"
+                     class="md:text-[40px] text-[20px] lg:text-[56px] font-bold"
+                  ></span>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script src="moment.min.js"></script>
+      <script src="moment-timezone-with-data.min.js"></script>
+      <script src="index.js"></script>
+   </body>
+</html>
