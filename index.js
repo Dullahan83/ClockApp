@@ -27,6 +27,7 @@ async function getData() {
    countryCode = data.country_code;
    city = data.city;
    timezone = data.timezone.id;
+   abbr = data.timezone.abbr;
    displayDataInfos();
    getInitialTimeData();
    getAdditionnalTimeDatas();
@@ -53,7 +54,7 @@ function getInitialTimeData() {
    const timestamp = Date.now();
    hourHTML.innerText = hours;
    minutesHTML.innerText = minutes;
-   timezoneHTML.innerText = moment.tz.zone(timezone).abbr(timestamp);
+   timezoneHTML.innerText = abbr;
 
    let Seconds = moment.tz(timezone).format("ss");
    const timer = setTimeout(() => {
@@ -101,10 +102,12 @@ function getAdditionnalTimeDatas() {
    let currentWeek = moment().isoWeek();
 
    dayOfWeek === 0 && (dayOfWeek = 7);
+   // checking if local date is the same as date in timezone (in case of vpn usage)
+   // if not, updating needed value
    if (momentDate < Number(dateInTimeZone)) {
       dayOfWeek = dayOfWeek == 7 ? dayOfWeek - 6 : dayOfWeek + 1;
       weekDayHTML.innerText = dayOfWeek;
-      dayOfYearHTML.innerText = dayOfTheYear + 1;
+      dayOfYearHTML.innerText = dayOfTheYear == 365 ? 1 : dayOfTheYear + 1;
 
       if (Number(dayOfWeek) == 1) {
          currentWeekHTML.innerText = currentWeek + 1;
@@ -114,7 +117,7 @@ function getAdditionnalTimeDatas() {
    } else if (momentDate > Number(dateInTimeZone)) {
       dayOfWeek = dayOfWeek == 1 ? dayOfWeek + 6 : dayOfWeek - 1;
       weekDayHTML.innerText = dayOfWeek;
-      dayOfYearHTML.innerText = dayOfTheYear - 1;
+      dayOfYearHTML.innerText = dayOfTheYear == 1 ? 365 : dayOfTheYear - 1;
       if (Number(dayOfWeek) == 7) {
          currentWeekHTML.innerText = currentWeek - 1;
       } else {
