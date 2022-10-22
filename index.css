@@ -19,6 +19,11 @@ body {
       background-position: 51.2% 98%;
    }
 }
+@media screen and (min-width: 1024px) {
+   body {
+      background-position: auto;
+   }
+}
 body::before {
    content: "";
    top: 0;

@@ -22,13 +22,11 @@ let isSwitched = false;
 })();
 
 async function getData() {
-   const response = await fetch("http://ip-api.com/json/", {
-      referrerPolicy: "unsafe-url",
-   });
+   const response = await fetch("https://ipwho.is/");
    data = await response.json();
-   countryCode = data.countryCode;
+   countryCode = data.country_code;
    city = data.city;
-   timezone = data.timezone;
+   timezone = data.timezone.id;
    displayDataInfos();
    getInitialTimeData();
    getAdditionnalTimeDatas();
@@ -70,12 +68,12 @@ function getInitialTimeData() {
 
 function callClockUpdate() {
    refreshTimeInfos();
-   let i = 0;
-   console.log("c'est parti");
+   // let i = 0;
+   // console.log("c'est parti");
    setInterval(() => {
       refreshTimeInfos();
-      i++;
-      console.log(`Ça fait ${i} minute`);
+      // i++;
+      // console.log(`Ça fait ${i} minute`);
    }, 60000);
 }
 
